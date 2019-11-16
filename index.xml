@@ -6,10 +6,20 @@
     <description>Recent content on sendai01</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 17 Nov 2019 03:44:35 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2019 03:57:18 +0900</lastBuildDate>
     
 	<atom:link href="https://sendai01.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>要約してくれるsumyを使う</title>
+      <link>https://sendai01.github.io/posts/python-sumy/</link>
+      <pubDate>Sun, 17 Nov 2019 03:57:18 +0900</pubDate>
+      
+      <guid>https://sendai01.github.io/posts/python-sumy/</guid>
+      <description> おっpythonで要約できるのか 長い文を読めない。
+sumyをインストロール sudo pip install sumy  使う sumy lex-rank --length=10 --url=http://en.wikipedia.org/wiki/Automatic_summarization  </description>
+    </item>
     
     <item>
       <title>Delicious_worms</title>
