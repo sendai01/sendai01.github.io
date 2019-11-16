@@ -3,11 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://sendai01.github.io/categories/</loc>
+    <loc>https://sendai01.github.io/posts/delicious_worms/</loc>
+    <lastmod>2019-11-17T03:44:35+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sendai01.github.io/posts/</loc>
+    <lastmod>2019-11-17T03:44:35+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://sendai01.github.io/</loc>
+    <lastmod>2019-11-17T03:44:35+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sendai01.github.io/categories/</loc>
   </url>
   
   <url>
