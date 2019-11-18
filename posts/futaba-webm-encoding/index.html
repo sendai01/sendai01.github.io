@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>sendai01  | FFmpegで動画をWebMに変換する</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="FFmpegで動画をWebMに変換する" />
+<meta property="og:description" content="準備 環境は Ubuntu 系を想定しています。
+FFmpegをインストールしましょう。 ctrl &#43; alt &#43; t でターミナルを立ち上げてください
+sudo apt install ffmpeg  ビルドしなくても大丈夫です。私はした覚えがありません。
+変換 非常にシンプルなコマンドで変換できます。
+ffmpeg -i input.mp4 output.webm  -iオプションのあとに変換したいファイル、最後に変換後のファイル名を指定しましょう。
+またあなたが心配性ならコーデックを指定することができます。
+ffmpeg -i input.mp4 -c:v libvpx-vp9 output.webm  サイズを抑える 1分程度の動画を2000KBに抑えたい！そんなことがあると思います。
+サイズを抑えたいなら、CRFの設定、フレームサイズ・ビットレートの変更、が効果的でしょう。
+ffmpeg -i input.mp4 -c:v libvpx-vp9 -crf 45 -vf scale=640:-1 -b:v 150k output.webm  -crf は品質です。数値を上げ過ぎると死にます。
+-vf scale=[横サイズ]:[縦サイズ] でサイズを設定できます。片方を -1 にすることでアスペクト比を維持できます。
+-b:v はビットレートです。数値を上げ過ぎると死にます。
+ffmpeg -i input.mp4  ffmpegに読ませるだけで動画の詳細を見ることができます。 悩んだ時はこれを見て数値を決定しましょう。
+参考リンク FFmpeg and VP9 Encoding Guide" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sendai01.github.io/posts/futaba-webm-encoding/" />
+<meta property="article:published_time" content="2019-11-19T00:25:25+09:00" />
+<meta property="article:modified_time" content="2019-11-19T00:25:25+09:00" />
+<meta itemprop="name" content="FFmpegで動画をWebMに変換する">
+<meta itemprop="description" content="準備 環境は Ubuntu 系を想定しています。
+FFmpegをインストールしましょう。 ctrl &#43; alt &#43; t でターミナルを立ち上げてください
+sudo apt install ffmpeg  ビルドしなくても大丈夫です。私はした覚えがありません。
+変換 非常にシンプルなコマンドで変換できます。
+ffmpeg -i input.mp4 output.webm  -iオプションのあとに変換したいファイル、最後に変換後のファイル名を指定しましょう。
+またあなたが心配性ならコーデックを指定することができます。
+ffmpeg -i input.mp4 -c:v libvpx-vp9 output.webm  サイズを抑える 1分程度の動画を2000KBに抑えたい！そんなことがあると思います。
+サイズを抑えたいなら、CRFの設定、フレームサイズ・ビットレートの変更、が効果的でしょう。
+ffmpeg -i input.mp4 -c:v libvpx-vp9 -crf 45 -vf scale=640:-1 -b:v 150k output.webm  -crf は品質です。数値を上げ過ぎると死にます。
+-vf scale=[横サイズ]:[縦サイズ] でサイズを設定できます。片方を -1 にすることでアスペクト比を維持できます。
+-b:v はビットレートです。数値を上げ過ぎると死にます。
+ffmpeg -i input.mp4  ffmpegに読ませるだけで動画の詳細を見ることができます。 悩んだ時はこれを見て数値を決定しましょう。
+参考リンク FFmpeg and VP9 Encoding Guide">
+
+
+<meta itemprop="datePublished" content="2019-11-19T00:25:25&#43;09:00" />
+<meta itemprop="dateModified" content="2019-11-19T00:25:25&#43;09:00" />
+<meta itemprop="wordCount" content="65">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="FFmpegで動画をWebMに変換する"/>
+<meta name="twitter:description" content="準備 環境は Ubuntu 系を想定しています。
+FFmpegをインストールしましょう。 ctrl &#43; alt &#43; t でターミナルを立ち上げてください
+sudo apt install ffmpeg  ビルドしなくても大丈夫です。私はした覚えがありません。
+変換 非常にシンプルなコマンドで変換できます。
+ffmpeg -i input.mp4 output.webm  -iオプションのあとに変換したいファイル、最後に変換後のファイル名を指定しましょう。
+またあなたが心配性ならコーデックを指定することができます。
+ffmpeg -i input.mp4 -c:v libvpx-vp9 output.webm  サイズを抑える 1分程度の動画を2000KBに抑えたい！そんなことがあると思います。
+サイズを抑えたいなら、CRFの設定、フレームサイズ・ビットレートの変更、が効果的でしょう。
+ffmpeg -i input.mp4 -c:v libvpx-vp9 -crf 45 -vf scale=640:-1 -b:v 150k output.webm  -crf は品質です。数値を上げ過ぎると死にます。
+-vf scale=[横サイズ]:[縦サイズ] でサイズを設定できます。片方を -1 にすることでアスペクト比を維持できます。
+-b:v はビットレートです。数値を上げ過ぎると死にます。
+ffmpeg -i input.mp4  ffmpegに読ませるだけで動画の詳細を見ることができます。 悩んだ時はこれを見て数値を決定しましょう。
+参考リンク FFmpeg and VP9 Encoding Guide"/>
+
+  </head>
+
+  <body class="ma0 system-sans-serif bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://sendai01.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      sendai01
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">FFmpegで動画をWebMに変換する</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-11-19T00:25:25&#43;09:00">November 19, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="準備">準備</h1>
+
+<p>環境は <strong>Ubuntu</strong> 系を想定しています。<br />
+FFmpegをインストールしましょう。 <code>ctrl</code> + <code>alt</code> + <code>t</code> でターミナルを立ち上げてください</p>
+
+<pre><code>sudo apt install ffmpeg
+</code></pre>
+
+<p>ビルドしなくても大丈夫です。私はした覚えがありません。</p>
+
+<h1 id="変換">変換</h1>
+
+<p>非常にシンプルなコマンドで変換できます。</p>
+
+<pre><code>ffmpeg -i input.mp4 output.webm
+</code></pre>
+
+<p><code>-i</code>オプションのあとに変換したいファイル、最後に変換後のファイル名を指定しましょう。<br />
+またあなたが心配性ならコーデックを指定することができます。</p>
+
+<pre><code>ffmpeg -i input.mp4 -c:v libvpx-vp9 output.webm
+</code></pre>
+
+<h2 id="サイズを抑える">サイズを抑える</h2>
+
+<p>1分程度の動画を2000KBに抑えたい！そんなことがあると思います。<br />
+サイズを抑えたいなら、CRFの設定、フレームサイズ・ビットレートの変更、が効果的でしょう。</p>
+
+<pre><code>ffmpeg -i input.mp4 -c:v libvpx-vp9 -crf 45 -vf scale=640:-1 -b:v 150k output.webm
+</code></pre>
+
+<p><code>-crf</code> は品質です。数値を上げ過ぎると死にます。<br />
+<code>-vf scale=[横サイズ]:[縦サイズ]</code> でサイズを設定できます。片方を <code>-1</code> にすることでアスペクト比を維持できます。<br />
+<code>-b:v</code> はビットレートです。数値を上げ過ぎると死にます。</p>
+
+<pre><code>ffmpeg -i input.mp4
+</code></pre>
+
+<p>ffmpegに読ませるだけで動画の詳細を見ることができます。
+悩んだ時はこれを見て数値を決定しましょう。</p>
+
+<h1 id="参考リンク">参考リンク</h1>
+
+<p><a href="https://trac.ffmpeg.org/wiki/Encode/VP9">FFmpeg and VP9 Encoding Guide</a></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://sendai01.github.io/" >
+    &copy; 2019 sendai01
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

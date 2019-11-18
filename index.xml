@@ -6,10 +6,31 @@
     <description>Recent content on sendai01</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 17 Nov 2019 03:57:18 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2019 00:25:25 +0900</lastBuildDate>
     
 	<atom:link href="https://sendai01.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>FFmpegで動画をWebMに変換する</title>
+      <link>https://sendai01.github.io/posts/futaba-webm-encoding/</link>
+      <pubDate>Tue, 19 Nov 2019 00:25:25 +0900</pubDate>
+      
+      <guid>https://sendai01.github.io/posts/futaba-webm-encoding/</guid>
+      <description>準備 環境は Ubuntu 系を想定しています。
+FFmpegをインストールしましょう。 ctrl + alt + t でターミナルを立ち上げてください
+sudo apt install ffmpeg  ビルドしなくても大丈夫です。私はした覚えがありません。
+変換 非常にシンプルなコマンドで変換できます。
+ffmpeg -i input.mp4 output.webm  -iオプションのあとに変換したいファイル、最後に変換後のファイル名を指定しましょう。
+またあなたが心配性ならコーデックを指定することができます。
+ffmpeg -i input.mp4 -c:v libvpx-vp9 output.webm  サイズを抑える 1分程度の動画を2000KBに抑えたい！そんなことがあると思います。
+サイズを抑えたいなら、CRFの設定、フレームサイズ・ビットレートの変更、が効果的でしょう。
+ffmpeg -i input.mp4 -c:v libvpx-vp9 -crf 45 -vf scale=640:-1 -b:v 150k output.webm  -crf は品質です。数値を上げ過ぎると死にます。
+-vf scale=[横サイズ]:[縦サイズ] でサイズを設定できます。片方を -1 にすることでアスペクト比を維持できます。
+-b:v はビットレートです。数値を上げ過ぎると死にます。
+ffmpeg -i input.mp4  ffmpegに読ませるだけで動画の詳細を見ることができます。 悩んだ時はこれを見て数値を決定しましょう。
+参考リンク FFmpeg and VP9 Encoding Guide</description>
+    </item>
     
     <item>
       <title>要約してくれるsumyを使う</title>
