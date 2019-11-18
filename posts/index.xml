@@ -32,24 +32,5 @@ ffmpeg -i input.mp4  ffmpegに読ませるだけで動画の詳細を見るこ�
 参考リンク FFmpeg and VP9 Encoding Guide</description>
     </item>
     
-    <item>
-      <title>要約してくれるsumyを使う</title>
-      <link>https://sendai01.github.io/posts/python-sumy/</link>
-      <pubDate>Sun, 17 Nov 2019 03:57:18 +0900</pubDate>
-      
-      <guid>https://sendai01.github.io/posts/python-sumy/</guid>
-      <description> おっpythonで要約できるのか 長い文を読めない。
-sumyをインストロール sudo pip install sumy  使う sumy lex-rank --length=10 --url=http://en.wikipedia.org/wiki/Automatic_summarization  </description>
-    </item>
-    
-    <item>
-      <title>Delicious_worms</title>
-      <link>https://sendai01.github.io/posts/delicious_worms/</link>
-      <pubDate>Sun, 17 Nov 2019 03:44:35 +0900</pubDate>
-      
-      <guid>https://sendai01.github.io/posts/delicious_worms/</guid>
-      <description>美味しい虫 虫は食べないほうがいい</description>
-    </item>
-    
   </channel>
 </rss>
